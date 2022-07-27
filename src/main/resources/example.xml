@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- 
+  - This file is included by the struts.xml file as an example
+  - of how to break up the configuration file into multiple files.
+-->
+<struts>
+    <package name="example" namespace="/example" extends="struts-default">
+
+        <action name="login" class="com.proj.example.action.Login">
+            <result name="success" type="redirectAction">
+                <param name="actionName">home</param>
+            </result>
+            <result name="error">/WEB-INF/example/Login.jsp</result>
+            <result name="input">/WEB-INF/example/Login.jsp</result>
+        </action>
+
+        <action name="home" class="com.proj.example.action.Home">
+            <result name="success">/WEB-INF/example/Main.jsp</result>
+            <result name="input">/WEB-INF/example/Main.jsp</result>
+        </action>
+
+        <action name="register" class="com.proj.example.action.Register">
+            <result name="success">/WEB-INF/example/Register.jsp</result>
+            <result name="error">/WEB-INF/example/Register.jsp</result>
+            <result name="input">/WEB-INF/example/Register.jsp</result>
+        </action>
+        
+        <action name="searchMeal" class="com.proj.example.action.SearchMeal" >
+            <result name="invalid">/WEB-INF/example/Error.jsp</result>
+            <result name="success">/WEB-INF/example/SearchMeal.jsp</result>
+            <result name="error">/WEB-INF/example/SearchMeal.jsp</result>
+            <result name="input">/WEB-INF/example/SearchMeal.jsp</result>
+        </action>
+        <action name="searchMealOnly" class="com.proj.example.action.SearchMeal" >
+            <result name="invalid">/WEB-INF/example/Error.jsp</result>
+            <result name="success">/WEB-INF/example/SearchMealOnly.jsp</result>
+            <result name="error">/WEB-INF/example/SearchMealOnly.jsp</result>
+            <result name="input">/WEB-INF/example/SearchMealOnly.jsp</result>
+        </action>
+
+        <action name="addMeal" class="com.proj.example.action.SearchMeal" method="addMeal">
+            <result name="invalid">/WEB-INF/example/Error.jsp</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">viewPlan</param>
+            </result>
+            <result name="error">/WEB-INF/example/SearchMeal.jsp</result>
+            <result name="input">/WEB-INF/example/SearchMeal.jsp</result>
+        </action>
+
+        <action name="addPlan" class="com.proj.example.action.AddPlan">
+            <result name="invalid">/WEB-INF/example/Error.jsp</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">home</param>
+            </result>
+            <result name="error">/WEB-INF/example/AddPlan.jsp</result>
+            <result name="input">/WEB-INF/example/AddPlan.jsp</result>
+        </action>
+
+        <action name="viewPlan" class="com.proj.example.action.Plan">
+            <result name="invalid">/WEB-INF/example/Error.jsp</result>
+            <result name="success">/WEB-INF/example/Plan.jsp</result>
+            <result name="error">/WEB-INF/example/Plan.jsp</result>
+            <result name="input">/WEB-INF/example/Plan.jsp</result>
+        </action>
+
+        <action name="removePlan" class="com.proj.example.action.Plan" method="removePlan">
+            <result name="success" type="redirectAction">
+                <param name="actionName">home</param>
+            </result>
+            <result name="error">/WEB-INF/example/Plan.jsp</result>
+        </action>
+        <action name="removeMeal" class="com.proj.example.action.Plan" method="removeMeal">
+            <result name="success" type="redirectAction">
+                <param name="actionName">viewPlan</param>
+            </result>
+            <result name="error">/WEB-INF/example/Plan.jsp</result>
+        </action>
+
+        <action name="logout" class="com.proj.example.action.Login" method="logout">
+            <result name="success">/WEB-INF/example/Login.jsp</result>
+            <result name="error">/WEB-INF/example/Login.jsp</result>
+        </action>
+
+
+        <!-- Add additional "example" package actions here. -->
+
+    </package>
+</struts>
